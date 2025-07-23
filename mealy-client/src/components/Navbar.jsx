@@ -2,14 +2,16 @@ import { Link } from "react-router-dom";
 
 function Navbar() {
   return (
-    <nav style={{ padding: "1rem", backgroundColor: "#eee" }}>
-      <h2>Mealy 🍔</h2>
-      <div>
+    <div>
+       <nav className="navbar">
+      <div className="nav-links">
         <Link to="/">Home</Link> |{" "}
         <Link to="/login">Login</Link> |{" "}
         <Link to="/signup">Signup</Link>
       </div>
     </nav>
+    </div>
+   
   );
 }
 

@@ -1,15 +1,15 @@
 import { Outlet } from "react-router-dom";
 import Navbar from "./Navbar";
-import Footer from "./Footer";
+// import Footer from "./Footer";
 
 function Layout() {
   return (
     <>
-      <Navbar />
-      <main style={{ minHeight: "80vh", padding: "1rem" }}>
+      {/* <Navbar /> */}
+      <main>
         <Outlet />
       </main>
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 }

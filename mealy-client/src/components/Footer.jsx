@@ -1,6 +1,6 @@
 function Footer() {
   return (
-    <footer style={{ padding: "1rem", backgroundColor: "#eee", marginTop: "2rem" }}>
+    <footer className="footer">
       <p>&copy; {new Date().getFullYear()} Mealy. All rights reserved.</p>
     </footer>
   );
