@@ -18,19 +18,23 @@ function Login() {
     e.preventDefault();
 
     try {
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+      const res = await fetch("http://localhost:5000/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(formData)
+      });
 
-      if (
-        formData.email === "test@mealy.com" &&
-        formData.password === "1234"
-      ) {
-        setMessage("Login successful");
-      } else {
-        setMessage("Invalid credentials");
-      }
+      if (!res.ok) throw new Error("Login failed");
+
+      const data = await res.json();
+      localStorage.setItem("token", data.token);
+      setMessage("Login successful");
+      window.location.href = "/dashboard";
     } catch (err) {
-      console.error(err);
-      setMessage("Error logging in");
+      console.error("Login error:", err);
+      setMessage("Invalid credentials or server error");
     }
   }
 
@@ -44,6 +48,7 @@ function Login() {
           placeholder="Email"
           value={formData.email}
           onChange={handleChange}
+          required
         /><br />
         <input
           type="password"
@@ -51,6 +56,7 @@ function Login() {
           placeholder="Password"
           value={formData.password}
           onChange={handleChange}
+          required
         /><br />
         <button type="submit">Log In</button>
       </form>
