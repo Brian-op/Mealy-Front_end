@@ -1,14 +1,21 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Dashboard() {
   const [menu, setMenu] = useState([]);
   const [selectedMeal, setSelectedMeal] = useState("");
   const [message, setMessage] = useState("");
+  const navigate = useNavigate();
 
   useEffect(() => {
     const token = localStorage.getItem("token");
 
-    fetch("http://localhost:5000/menu/today", {
+    if (!token) {
+      navigate("/login");
+      return;
+    }
+
+    fetch("http://localhost:5000/menu", {
       headers: {
         Authorization: `Bearer ${token}`
       }
@@ -19,7 +26,7 @@ function Dashboard() {
       })
       .then((data) => setMenu(data))
       .catch((err) => setMessage(err.message));
-  }, []);
+  }, [navigate]);
 
   const handleOrder = (e) => {
     e.preventDefault();
@@ -41,9 +48,18 @@ function Dashboard() {
       .catch((err) => setMessage(err.message));
   };
 
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    navigate("/login");
+  };
+
   return (
     <div className="dashboard">
-      <h2>Today's Menu</h2>
+      <header>
+        <h2>Today's Menu</h2>
+        <button onClick={handleLogout}>Logout</button>
+      </header>
+
       {message && <p>{message}</p>}
 
       {menu.length === 0 ? (

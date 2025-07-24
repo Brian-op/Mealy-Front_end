@@ -2,8 +2,9 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
-import Dashboard from "./pages/Dashboard";
+import OrderHistory from "./pages/OrderHistory";
 import './App.css';
+import Orders from "./pages/Orders";
 
 function App() {
   return (
@@ -18,7 +19,9 @@ function App() {
           } />
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/order-history" element={<OrderHistory />} />
+          <Route path="/orders" element={<OrderHistory />} />
+          <Route path="/orders" element={<Orders />} />
         </Routes>
       </div>
     </Router>
@@ -26,3 +29,4 @@ function App() {
 }
 
 export default App;
+
