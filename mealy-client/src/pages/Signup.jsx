@@ -3,30 +3,29 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { useAuth } from '../context/AuthContext';
 
-function Login() {
+function Signup() {
   const navigate = useNavigate();
   const { login } = useAuth(); 
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-const handleLogin = (e) => {
-  e.preventDefault();
+  const handleSignup = (e) => {
+    e.preventDefault();
 
-  if (email && password) {
-    const role = email.includes("admin") ? "admin" : "user";
-    login(email, role); 
-    navigate("/home");
-  }
-};
-
+    if (email && password) {
+      const role = email.includes('admin') ? 'admin' : 'user';
+      login(email, role); 
+      navigate('/home');
+    }
+  };
 
   return (
     <div className="auth-wrapper">
-      <h2 className="auth-title-floating">LOGIN</h2>
+      <h2 className="auth-title-floating">SIGN UP</h2>
       <div className="auth-container">
         <div className="auth-card">
-          <form onSubmit={handleLogin}>
+          <form onSubmit={handleSignup}>
             <input
               type="email"
               placeholder="Email address"
@@ -41,10 +40,10 @@ const handleLogin = (e) => {
               onChange={(e) => setPassword(e.target.value)}
               required
             />
-            <button type="submit" className="auth-btn">Login</button>
+            <button type="submit" className="auth-btn">Create Account</button>
           </form>
           <p className="auth-link">
-            Don't have an account? <Link to="/signup">SIGN UP</Link>
+            Already have an account? <Link to="/login">LOGIN</Link>
           </p>
         </div>
       </div>
@@ -52,4 +51,4 @@ const handleLogin = (e) => {
   );
 }
 
-export default Login;
+export default Signup;
