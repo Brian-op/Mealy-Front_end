@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Sigmar&display=swap');
+
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-bottom: 2px solid transparent;
+    padding-bottom: 4px;
+    transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+    color: limegreen;
+}
+
+.nav-link.active {
+    border-bottom: 2px solid limegreen;
+}
