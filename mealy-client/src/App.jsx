@@ -10,7 +10,7 @@ import Profile from "./pages/Profile";
 import Order from "./pages/Order"
 import Admin from './pages/Admin';
 import ProtectedAdminRoute from './components/ProtectedAdminRoute';
-import Navbar from "./components/Navbar";
+
 
 
 
