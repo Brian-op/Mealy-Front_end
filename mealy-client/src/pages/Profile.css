@@ -1,0 +1,63 @@
+.profile-page {
+    padding: 40px;
+    background-color: rgba(107, 102, 103, 0.75);
+    min-height: 100vh;
+}
+
+.profile-heading {
+    text-align: center;
+    font-family: "Sigmar", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 30px;
+    color: limegreen;
+    margin-bottom: 30px;
+}
+
+.profile-card {
+    max-width: 500px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.75);
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    padding: 30px;
+}
+
+.profile-info p {
+    font-size: 18px;
+    margin: 15px 0;
+}
+
+.edit-btn {
+    margin-top: 20px;
+    padding: 10px 25px;
+    background-color: #000;
+    border: none;
+    border-radius: 8px;
+    color: limegreen;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s ease;
+}
+
+.edit-btn:hover {
+    background-color: #ccc;
+}
+
+
+.logout-btn {
+    margin-top: 1rem;
+    background-color: red;
+    color: white;
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s ease;
+}
+
+.logout-btn:hover {
+    background-color: darkred;
+}
