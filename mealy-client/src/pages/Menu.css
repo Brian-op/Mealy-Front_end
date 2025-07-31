@@ -48,6 +48,7 @@
     color: white;
     font-weight: bold;
     transition: color 0.3s ease;
+    font-size: 20px;
 }
 
 .navbar ul li a:hover {

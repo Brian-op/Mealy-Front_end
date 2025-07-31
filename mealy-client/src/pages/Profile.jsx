@@ -20,16 +20,18 @@ function Profile() {
     <div className="profile-page">
       <nav className='navbar-p'>
         <ul>
-          <li>  <NavLink
+          <li className='tooltip'>  <NavLink
           to="/home"
           className={({ isActive }) =>
             isActive ? "nav-link active" : "nav-link"
           }
         >
           <i class="fa-regular fa-house"></i>
+          <span className="tooltiptext">Home</span>
         </NavLink></li>
         </ul>
       </nav>
+
       <h2 className="profile-heading">My Profile</h2>
       <div className="profile-card">
         <div className="profile-info">
