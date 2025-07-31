@@ -3,7 +3,7 @@
     background-size: cover;
     background-position: center;
     height: 100vh;
-    color: white;
+    color: rgb(255, 255, 255);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -22,14 +22,23 @@
     gap: 1.5rem;
     margin-right: 1rem;
     align-items: center;
+
+    i{
+        color:white;
+        font-size: 25px;
+    }
 }
 
 .nav .profile-icon {
-    margin-left: 0.5rem;
-    font-size: 40px;
 
     i {
         color: limegreen;
+        font-size: 55px;
+
+
+        &:hover {
+                color:white;
+            }
     }
 }
 
@@ -53,10 +62,11 @@
     text-decoration: none;
     font-weight: 500;
     border-bottom: 2px solid transparent;
+    font-size: 20px;
 }
 
-.nav ul li a:hover,
-.nav ul li a.order-now {
+.nav ul li i:hover,
+.nav ul li i.order-now {
     color: limegreen;
 }
 
@@ -64,13 +74,13 @@
 
 .glass-container {
     background-color: rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(2px);
+    backdrop-filter: blur(4px);
     -webkit-backdrop-filter: blur(12px);
     border-radius: 20px;
     padding: 2rem;
     margin: 2rem auto;
-    width: 98%;
-    height: 98%;
+    width: 99%;
+    height: 99%;
 }
 
 
@@ -89,7 +99,7 @@
 .hero-text p {
     margin-top: 1rem;
     margin-bottom: 1.5rem;
-    font-size: 1.2rem;
+    font-size: 2rem;
 }
 
 .cta-btn {
@@ -107,11 +117,11 @@
     display: flex;
     justify-content: space-between;
     padding: 2rem 2rem;
-    margin: 2rem auto;
+    margin: 1rem auto ;
     color: white;
     position: relative;
     bottom: 0;
-    width: 98%;
+    width: 99%;
     font-size: 0.9rem;
     z-index: 10;
 

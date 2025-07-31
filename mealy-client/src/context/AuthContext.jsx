@@ -1,4 +1,5 @@
 import { createContext, useContext, useState, useEffect } from "react";
+import { attachToken } from "../api"; // ✅ make sure path is correct
 
 const AuthContext = createContext();
 
@@ -7,20 +8,30 @@ export function useAuth() {
 }
 
 export function AuthProvider({ children }) {
-  const [user, setUser] = useState(null); 
+  const [user, setUser] = useState(null);
 
-  
   useEffect(() => {
     const storedUser = localStorage.getItem("meally-user");
     if (storedUser) {
-      setUser(JSON.parse(storedUser));
+      const parsedUser = JSON.parse(storedUser);
+      setUser(parsedUser);
+
+      // ✅ Attach token to Axios headers on app start
+      if (parsedUser.token) {
+        attachToken(parsedUser.token);
+      }
     }
   }, []);
 
-  const login = (email, role = "user") => {
-    const userData = { email, role };
+  const login = (email, role = "user", token) => {
+    const userData = { email, role, token };
     setUser(userData);
     localStorage.setItem("meally-user", JSON.stringify(userData));
+
+    // ✅ Attach token to Axios requests
+    if (token) {
+      attachToken(token);
+    }
   };
 
   const logout = () => {

@@ -146,3 +146,21 @@ h3 {
     backdrop-filter: blur(12px);
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
+
+.quantity-controls {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 0.5rem 0;
+}
+
+.quantity-controls button {
+    background-color: #000;
+    border: none;
+    padding: 5px 12px;
+    font-weight: bold;
+    color: limegreen;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 15px;
+}

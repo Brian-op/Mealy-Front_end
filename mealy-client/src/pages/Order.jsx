@@ -3,13 +3,21 @@ import './Order.css';
 import { NavLink } from 'react-router-dom';
 
 function Order() {
-  const { cart, removeFromCart, clearCart } = useCart();
+  const {
+    cart,
+    removeFromCart,
+    clearCart,
+    increaseQuantity,
+    decreaseQuantity
+  } = useCart();
 
-  const total = cart.reduce((sum, meal) => sum + meal.price, 0);
+  const total = cart.reduce(
+    (sum, meal) => sum + meal.price * meal.quantity,
+    0
+  );
 
   return (
     <div className="order-page">
-
       {/* Top Navbar */}
       <nav className="order-navbar">
         <NavLink to="/home" className="nav-link">Home</NavLink>
@@ -28,7 +36,12 @@ function Order() {
                 <img src={meal.image} alt={meal.name} />
                 <div>
                   <p>{meal.name}</p>
-                  <p>Ksh {meal.price}</p>
+                  <p>Price: Ksh {meal.price}</p>
+                  <div className="quantity-controls">
+                    <button onClick={() => decreaseQuantity(meal.id)}>-</button>
+                    <span>Qty: {meal.quantity}</span>
+                    <button onClick={() => increaseQuantity(meal.id)}>+</button>
+                  </div>
                   <button
                     onClick={() => removeFromCart(meal.id)}
                     className="remove-btn"

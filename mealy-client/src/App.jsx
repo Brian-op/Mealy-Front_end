@@ -8,7 +8,7 @@ import Signup from './pages/Signup';
 import Menu from "./pages/Menu";
 import Profile from "./pages/Profile";
 import Order from "./pages/Order"
-import Admin from './pages/Admin';
+import Admin from './pages/admin/Admin';
 import ProtectedAdminRoute from './components/ProtectedAdminRoute';
 
 

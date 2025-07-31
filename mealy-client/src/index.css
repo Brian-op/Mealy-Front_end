@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Sigmar&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
 
 * {
     box-sizing: border-box;
@@ -10,7 +10,9 @@
 .nav-link {
     color: white;
     text-decoration: none;
-    font-weight: bold;
+    font-family: "Oswald", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
     border-bottom: 2px solid transparent;
     padding-bottom: 4px;
     transition: all 0.3s ease;
@@ -22,4 +24,35 @@
 
 .nav-link.active {
     border-bottom: 2px solid limegreen;
+}
+
+
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.tooltiptext {
+    visibility: hidden;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    font-size: 11px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.3s;
+    white-space: nowrap;
+    z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
 }

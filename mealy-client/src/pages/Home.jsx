@@ -12,22 +12,25 @@ function Home() {
     <div className="nav">
       <div className="brand">MEA<i className="fa-solid fa-utensils"/>Y</div>
       <div className='nav-right'>     <ul>
-        <li>
+        <li className='tooltip'>
           <NavLink to="/home" className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}>
-            Home
+            <i class="fa-regular fa-house"></i>
+            <span className="tooltiptext">Home</span>
           </NavLink>
         </li>
-        <li>
+        <li className='tooltip'>
           <NavLink to="/meals" className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}>
-            Menu
+            <i class="fa-solid fa-utensils"></i>
+            <span className="tooltiptext">Menu</span>
           </NavLink>
         </li>
-        <li>
+        <li className='tooltip'>
           <NavLink to="/meals" className="order-now">
-            Order Now
+            <i class="fa-solid fa-bell-concierge"></i>
+            <span className="tooltiptext">Order Now</span>
           </NavLink>
         </li>
-        <li>
+        <li className='tooltip'>
         {user && user.role === "admin" && (
               <NavLink
                 to="/admin"
@@ -36,14 +39,18 @@ function Home() {
                 }
               >
                 Admin Panel
+                <span className="tooltiptext">Admin Panel</span>
               </NavLink>
             )}
             </li>
       </ul>
+      <div className='tooltip'>
       <div className="profile-icon">
         <NavLink to="/profile" className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}>
           <i className="fa-regular fa-circle-user"></i>
+          <span className="tooltiptext">Profile</span>
         </NavLink>
+        </div>
       </div>
       </div>
  
@@ -52,7 +59,10 @@ function Home() {
     <div className="hero-text">
       <h1>MORE THAN FINGER<br />LICKING GOOD!</h1>
       <p>Get the best quality and tasty meals</p>
+      <div className='tooltip'>
       <NavLink to="/meals" className="cta-btn">Order Food</NavLink>
+      <span className="tooltiptext">Order Food in Menu</span>
+      </div>
     </div>
   </div>
 
