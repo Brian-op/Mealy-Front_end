@@ -234,20 +234,26 @@ function Admin() {
         <div className="brand">MEA<i className="fa-solid fa-utensils" />Y</div>
         <div className="nav-right">
           <ul>
-            <li>
-              <NavLink to="/home" className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}>Home</NavLink>
+            <li className='tooltip'>
+              <NavLink to="/home" className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}><i class="fa-regular fa-house"></i></NavLink>
+               <span className="tooltiptext">Home</span>
             </li>
-            <li>
-              <NavLink to="/meals" className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}>Menu</NavLink>
+            <li className='tooltip'>
+              <NavLink to="/meals" className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}><i class="fa-solid fa-utensils"></i></NavLink>
+               <span className="tooltiptext">Menu</span>
             </li>
-            <li>
+            <li className='tooltip'>
               {user && user.role === "admin" && (
                 <NavLink to="/admin" className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}>Admin Panel</NavLink>
               )}
+              <span className="tooltiptext">Admin Panel</span>
             </li>
+            <div className='tooltip'>
             <li className="profile-btn">
               <NavLink to="/profile"><i className="fa-regular fa-circle-user"></i></NavLink>
+              <span className="tooltiptext">Profile</span>
             </li>
+            </div>
           </ul>
         </div>
       </nav>
