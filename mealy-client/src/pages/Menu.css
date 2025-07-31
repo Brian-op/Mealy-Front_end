@@ -43,15 +43,21 @@
     height: 100%;
 }
 
-.navbar ul li a {
+.navbar ul li  {
     text-decoration: none;
     color: white;
     font-weight: bold;
     transition: color 0.3s ease;
-    font-size: 20px;
+    font-size: 29px;
 }
 
-.navbar ul li a:hover {
+.tooltip{
+    i{
+        color: white;
+    }
+}
+
+.navbar ul li i:hover {
     color: limegreen;
 }
 
@@ -173,7 +179,7 @@
 }
 
 .profile-btn i {
-    font-size: 3rem;
+    font-size: 55px;
     color: limegreen;
 
     &:hover {

@@ -59,7 +59,10 @@ function Home() {
     <div className="hero-text">
       <h1>MORE THAN FINGER<br />LICKING GOOD!</h1>
       <p>Get the best quality and tasty meals</p>
+      <div className='tooltip'>
       <NavLink to="/meals" className="cta-btn">Order Food</NavLink>
+      <span className="tooltiptext">Order Food in Menu</span>
+      </div>
     </div>
   </div>
 

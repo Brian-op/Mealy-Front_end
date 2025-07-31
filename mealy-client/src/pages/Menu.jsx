@@ -35,24 +35,26 @@ function Menu() {
       <nav className="navbar">
         <h1 className="logo">MEA<i class="fa-solid fa-utensils"/>Y</h1>
         <ul>
-          <li>  <NavLink
+          <li className='tooltip'>  <NavLink
           to="/home"
           className={({ isActive }) =>
             isActive ? "nav-link active" : "nav-link"
           }
         >
-          Home
+          <i class="fa-regular fa-house"></i>
+          <span className="tooltiptext">Home</span>
         </NavLink></li>
-          <li> <NavLink
+          <li className='tooltip'> <NavLink
           to="/meals"
           className={({ isActive }) =>
             isActive ? "nav-link active" : "nav-link"
           }
         >
-          Menu
+          <i class="fa-solid fa-utensils"></i>
+          <span className="tooltiptext">Menu</span>
         </NavLink>
         </li>
-                <li>
+                <li className='tooltip'>
         {user && user.role === "admin" && (
               <NavLink
                 to="/admin"
@@ -61,10 +63,14 @@ function Menu() {
                 }
               >
                 Admin Panel
+                <span className="tooltiptext">Admin Panel</span>
               </NavLink>
             )}
             </li>
-          <li className='profile-btn'><NavLink to="/profile"><i class="fa-regular fa-circle-user"></i></NavLink></li>
+            <div className='tooltip'>
+              <li className='profile-btn'><NavLink to="/profile"><i class="fa-regular fa-circle-user"></i></NavLink></li>
+              <span className="tooltiptext">Profile</span>
+            </div>
 
         </ul>
       </nav>
