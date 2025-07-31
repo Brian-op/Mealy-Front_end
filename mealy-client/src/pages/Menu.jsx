@@ -19,8 +19,10 @@ const mealsList = [
 
 function Menu() {
   const { user } = useAuth();
-  const { addToCart } = useCart();
+  const { addToCart, cart } = useCart();
   const [search, setSearch] = useState("");
+
+  const cartQuantity = cart.reduce((total, item) => total + item.quantity, 0);
 
   const filteredMeals = mealsList.filter((meal) =>
     meal.name.toLowerCase().includes(search.toLowerCase())
@@ -75,16 +77,18 @@ function Menu() {
       {/* Search Bar */}
       <div className='search-section'>
         <div className="search-container">
+          <i class="fa-solid fa-magnifying-glass"></i>
         <input
-          type="text"
+          type="search"
           placeholder="Search Meals..."
           value={search}
           onChange={(e) => setSearch(e.target.value)}
         />
 
-         <NavLink to="/order" className="cart-btn-cart">
-       Go to Cart 🛒
-      </NavLink>
+       <NavLink to="/order" className="cart-btn-cart">
+         Go to Cart 🛒 {cart.reduce((sum, item) => sum + item.quantity, 0)}
+       </NavLink>
+
       </div>
       </div>
       

@@ -1,6 +1,6 @@
 .profile-page {
     padding: 40px;
-    background-color: rgba(107, 102, 103, 0.75);
+    background-color: #9b9a9a;
     min-height: 100vh;
 }
 
@@ -60,4 +60,39 @@
 
 .logout-btn:hover {
     background-color: darkred;
+}
+
+
+.navbar-p ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-left: 94%;
+
+    i{
+        color: limegreen;
+        font-size: 40px;
+
+        &:hover{
+            color: #000;
+        }
+    }
+}
+
+.navbar-p ul li {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.navbar-p ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.navbar-p ul li a:hover {
+    color: limegreen;
 }

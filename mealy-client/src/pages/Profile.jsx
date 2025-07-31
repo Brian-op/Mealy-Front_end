@@ -1,5 +1,6 @@
 import './Profile.css';
 import { useNavigate } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 function Profile() {
   const navigate = useNavigate();
@@ -17,6 +18,18 @@ function Profile() {
 
   return (
     <div className="profile-page">
+      <nav className='navbar-p'>
+        <ul>
+          <li>  <NavLink
+          to="/home"
+          className={({ isActive }) =>
+            isActive ? "nav-link active" : "nav-link"
+          }
+        >
+          <i class="fa-regular fa-house"></i>
+        </NavLink></li>
+        </ul>
+      </nav>
       <h2 className="profile-heading">My Profile</h2>
       <div className="profile-card">
         <div className="profile-info">
