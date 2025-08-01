@@ -24,14 +24,8 @@ function Login() {
 
       const { token, role } = response.data;
 
-      // Store token in localStorage
       localStorage.setItem('token', token);
 
-      // Optional: attach token globally if needed (already done in api.js now)
-      // attachToken(token);
-
-      // Login via AuthContext
-      login(email, role || 'user'); // fallback to 'user' if role isn't provided
 
       navigate('/home');
     } catch (err) {
