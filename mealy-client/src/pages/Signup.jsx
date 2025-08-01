@@ -2,6 +2,7 @@ import './Auth.css';
 import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { useAuth } from '../context/AuthContext';
+import API from '../api';
 
 function Signup() {
   const navigate = useNavigate();
@@ -10,13 +11,24 @@ function Signup() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleSignup = (e) => {
+  const handleSignup = async (e) => {
     e.preventDefault();
 
-    if (email && password) {
-      const role = email.includes('admin') ? 'admin' : 'user';
+    try {
+      const response = await API.post('/signup', {
+        email,
+        password,
+      });
+
+      const { token, role } = response.data;
+
+      localStorage.setItem('token', token);
+
       login(email, role); 
       navigate('/home');
+    } catch (err) {
+      console.error('Signup failed:', err);
+      alert('Signup failed. Please try again.');
     }
   };
 
