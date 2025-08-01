@@ -1,47 +1,47 @@
-import { createContext, useContext, useState, useEffect } from "react";
-import { attachToken } from "../api"; // ✅ make sure path is correct
+import { createContext, useContext, useState, useEffect } from 'react';
+import API, { attachToken } from '../api';
 
 const AuthContext = createContext();
 
-export function useAuth() {
-  return useContext(AuthContext);
-}
-
-export function AuthProvider({ children }) {
-  const [user, setUser] = useState(null);
+export const AuthProvider = ({ children }) => {
+  const [user, setUser] = useState(null);  
+  const [token, setToken] = useState(null);
 
   useEffect(() => {
-    const storedUser = localStorage.getItem("meally-user");
-    if (storedUser) {
-      const parsedUser = JSON.parse(storedUser);
-      setUser(parsedUser);
+    const storedToken = localStorage.getItem('token');
+    const storedUser = localStorage.getItem('user');
 
-      // ✅ Attach token to Axios headers on app start
-      if (parsedUser.token) {
-        attachToken(parsedUser.token);
-      }
+    if (storedToken && storedUser) {
+      const parsedUser = JSON.parse(storedUser);
+      setToken(storedToken);
+      setUser(parsedUser);
+      attachToken(storedToken);
     }
   }, []);
 
-  const login = (email, role = "user", token) => {
-    const userData = { email, role, token };
-    setUser(userData);
-    localStorage.setItem("meally-user", JSON.stringify(userData));
-
-    // ✅ Attach token to Axios requests
-    if (token) {
-      attachToken(token);
+  const login = (email, role) => {
+    const userInfo = { email, role };
+    setUser(userInfo);
+    const storedToken = localStorage.getItem('token');
+    if (storedToken) {
+      setToken(storedToken);
+      attachToken(storedToken);
     }
+    localStorage.setItem('user', JSON.stringify(userInfo));
   };
 
   const logout = () => {
     setUser(null);
-    localStorage.removeItem("meally-user");
+    setToken(null);
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
   };
 
   return (
-    <AuthContext.Provider value={{ user, login, logout }}>
+    <AuthContext.Provider value={{ user, token, login, logout }}>
       {children}
     </AuthContext.Provider>
   );
-}
+};
+
+export const useAuth = () => useContext(AuthContext);
