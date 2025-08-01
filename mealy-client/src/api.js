@@ -1,5 +1,6 @@
-// src/api.js
+
 import axios from 'axios';
+
 
 const API = axios.create({
   baseURL: 'https://mealy-back-end.onrender.com', 
@@ -8,16 +9,16 @@ const API = axios.create({
   },
 });
 
-// Custom function to attach token
-export const attachToken = (token) => {
-  API.interceptors.request.use((config) => {
+
+API.interceptors.request.use(
+  (config) => {
+    const token = localStorage.getItem('token');
     if (token) {
       config.headers.Authorization = `Bearer ${token}`;
     }
     return config;
-  }, (error) => {
-    return Promise.reject(error);
-  });
-};
+  },
+  (error) => Promise.reject(error)
+);
 
 export default API;
