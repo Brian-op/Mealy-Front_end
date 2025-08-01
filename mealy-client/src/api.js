@@ -3,7 +3,7 @@ import axios from 'axios';
 
 
 const API = axios.create({
-  baseURL: 'https://mealy-back-end.onrender.com', 
+  baseURL: 'https://mealy-back-end.onrender.com/', 
   headers: {
     'Content-Type': 'application/json',
   },
