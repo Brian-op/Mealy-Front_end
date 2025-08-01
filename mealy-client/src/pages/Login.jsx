@@ -26,6 +26,8 @@ function Login() {
 
       localStorage.setItem('token', token);
 
+      
+      login(email, role); 
 
       navigate('/home');
     } catch (err) {
